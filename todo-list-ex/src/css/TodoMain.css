@@ -1,0 +1,15 @@
+main.todo-main {
+  display: flex;
+  flex-flow: column;
+  width: 50%;
+  align-items: center;
+  margin: 30px auto;
+}
+
+main.todo-main h3 {
+  width: 100%;
+  text-align: center;
+  background-color: burlywood;
+  border-radius: 5px;
+  padding: 10px;
+}
