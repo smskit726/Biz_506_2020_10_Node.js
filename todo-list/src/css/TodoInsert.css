@@ -1,0 +1,26 @@
+div.form {
+  display: flex;
+  padding: 12px;
+}
+
+div.form input {
+  flex: 1px;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+
+div.todo-insert {
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+  background-color: brown;
+  border-radius: 3px;
+  color: white;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+div.todo-insert:hover {
+  background-color: crimson;
+}
