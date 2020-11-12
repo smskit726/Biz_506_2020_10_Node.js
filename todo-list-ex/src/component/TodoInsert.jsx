@@ -22,9 +22,9 @@ class TodoInsert extends Component {
           onChange={this.onChage}
           name="todo"
         />
-        <button type="button" onClick={this.onCreate}>
+        <div className="btn-insert" onClick={this.onCreate}>
           추가
-        </button>
+        </div>
       </form>
     );
   }
