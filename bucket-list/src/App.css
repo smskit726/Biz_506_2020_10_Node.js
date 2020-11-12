@@ -1,0 +1,20 @@
+.App {
+  text-align: center;
+  min-height: 100vh;
+  background-color: #ffe5b5;
+}
+
+/* 
+100vh : 현재 창의 높이를 100%로 만들어라
+100wh : 현재 창의 폭을 100%로 만들어라
+*/
+.App-header {
+  background-color: #282c34;
+  /* min-height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
