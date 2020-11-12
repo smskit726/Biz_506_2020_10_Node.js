@@ -1,3 +1,6 @@
 div.todo-list {
   width: 100%;
+  background-color: papayawhip;
+  border-radius: 5px;
+  padding: 10px;
 }

@@ -4,9 +4,16 @@ import "../css/TodoList.css";
 
 class TodoList extends Component {
   render() {
-    const { todoList } = this.props;
+    const { todoList, onToggle, onDeleteItem } = this.props;
     const viewTodoList = todoList.map((todo) => {
-      return <TodoItem key={todo.id} todo={todo} />;
+      return (
+        <TodoItem
+          key={todo.id}
+          todo={todo}
+          onToggle={onToggle}
+          onDeleteItem={onDeleteItem}
+        />
+      );
     });
     return (
       <div className="todo-list">

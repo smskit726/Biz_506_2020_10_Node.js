@@ -4,6 +4,7 @@ div.todo-item {
   align-items: center;
   cursor: pointer;
   transition: linear 0.2s;
+  color: black;
 }
 
 div.todo-item:hover {
@@ -24,12 +25,14 @@ div.todo-item:hover div.todo-delete {
 div.checked {
   text-decoration: line-through;
   color: #aaa;
+  transition: linear 0.2s;
 }
 
 div.todo-text {
   flex: 1;
   word-break: break-all;
   text-align: left;
+  transition: linear 0.2s;
 }
 
 div.check-mark {
