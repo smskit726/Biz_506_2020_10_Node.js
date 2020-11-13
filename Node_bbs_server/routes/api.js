@@ -25,7 +25,7 @@ router.get("/bbsList", (req, res) => {
 router.get("/insert", (req, res) => {
   bbsDao
     .create({
-      b_writer: req.query.writer || "이몽룡",
+      b_writer: req.query.writer || "장보고",
       b_date_time: Date().toString(),
       b_subject: "게시판 작성",
       b_content: "DB연결 어렵다 :D",
