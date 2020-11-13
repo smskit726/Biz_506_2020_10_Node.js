@@ -6,7 +6,7 @@ function App() {
   const background = {
     backgroundImage: `url(${BackImg})`,
     backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
+    backgroundSize: "100% 100%",
     backgroundAttachment: "scroll",
   };
   return (
