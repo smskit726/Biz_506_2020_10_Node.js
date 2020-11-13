@@ -1,0 +1,49 @@
+.bbs-insert {
+  width: 80%;
+  margin: 10px auto;
+  display: flex;
+  padding: 5px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+}
+
+.bbs-insert input,
+.bbs-insert button {
+  margin: 5px 3px;
+}
+
+.bbs-insert input {
+  border: 1px solid #aaa;
+  outline: none;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.bbs-insert input:hover {
+  background-color: #ccc;
+}
+
+.bbs-insert input:nth-child(1),
+.bbs-insert input:nth-child(2) {
+  flex: 1;
+}
+
+.bbs-insert input:nth-child(3) {
+  flex: 5;
+}
+
+.bbs-insert button {
+  display: inline-block;
+  flex: 1;
+  background-color: brown;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+
+.bbs-insert button:hover {
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+}
