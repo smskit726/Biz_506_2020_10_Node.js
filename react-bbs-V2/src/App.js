@@ -1,6 +1,8 @@
 import BackImg from "./Bgimg.jpg";
 import "./App.css";
 import BbsMain from "./main/BbsMain";
+import BbsNav from "./main/BbsNav";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function App() {
   const background = {
@@ -15,7 +17,11 @@ function App() {
         <h3>REACT BBS 2020</h3>
         <p className="sub-title">React로 구현하는 BBS Project</p>
       </header>
-      <BbsMain />
+      <Router>
+        <BbsNav />
+        <Route exact path="/" component={BbsMain} />
+        <Route exact path="/admin" component={BbsMain} />
+      </Router>
       <footer className="footer">
         <address>CopyRight &copy; smskit726@gmail.com</address>
       </footer>

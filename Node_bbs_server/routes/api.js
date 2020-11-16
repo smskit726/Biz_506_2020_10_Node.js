@@ -22,16 +22,61 @@ router.get("/bbsList", (req, res) => {
   //   res.json(list);
 });
 
-router.get("/insert", (req, res) => {
+/**
+ * web browser로부터 데이터 전달받기
+ * ?변수=값 : req.query.변수
+ * /:변수 : req.params.변수
+ * ajax를 통해서 전달받은 데이터 : req.body.변수
+ */
+router.post("/insert", (req, res) => {
   bbsDao
     .create({
-      b_writer: req.query.writer || "장보고",
+      b_writer: req.body.b_writer,
       b_date_time: Date().toString(),
-      b_subject: "게시판 작성",
-      b_content: "DB연결 어렵다 :D",
+      b_subject: req.body.b_subject,
+      b_content: req.body.b_content,
     })
     .then((result) => {
       //   res.json(result);
+      res.redirect("/api/bbsList");
+    });
+});
+
+router.get("/view", (req, res) => {
+  const b_id = req.query.id;
+  bbsDao
+    .findOne({
+      where: { b_id: Number(b_id) },
+    })
+    .then((result) => {
+      res.json(result);
+    });
+});
+
+// localhost:3000/api/view/10
+router.get("/view/:id", (req, res) => {
+  const b_id = req.params.id;
+  bbsDao
+    .findOne({
+      where: { b_id: Number(b_id) },
+    })
+    .then((result) => {
+      res.json(result);
+    });
+});
+
+router.post("/update/:id", (req, res) => {
+  const b_id = req.params.id;
+  bbsDao
+    .update(
+      {
+        b_writer: req.body.b_writer,
+        b_subject: req.body.b_subject,
+        b_content: req.body.b_content,
+      },
+      { where: { b_id: Number(b_id) } }
+    )
+    .then((result) => {
       res.redirect("/api/bbsList");
     })
     .catch((err) => {
@@ -39,4 +84,14 @@ router.get("/insert", (req, res) => {
     });
 });
 
+router.delete("/delete/:id", (req, res) => {
+  const b_id = req.params.id;
+  bbsDao
+    .destroy({
+      where: { b_id: b_id },
+    })
+    .then((result) => {
+      res.redirect("/api/bbsList");
+    });
+});
 module.exports = router;
