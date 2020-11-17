@@ -23,7 +23,7 @@ class BbsItem extends Component {
         <td>{index + 1}</td>
         <td>{bbs.b_writer}</td>
         <td>
-          <Moment format="YYYY-MM-DD HH:mm:SS">{bbs.b_date_time}</Moment>
+          <Moment format="YYYY-MM-DD HH:mm:ss">{bbs.b_date_time}</Moment>
         </td>
         <td
           style={{ cursor: "pointer" }}

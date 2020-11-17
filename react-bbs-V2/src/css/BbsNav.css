@@ -1,0 +1,26 @@
+nav.main-nav {
+  margin: 0;
+  background-color: burlywood;
+}
+
+nav.main-nav ul {
+  display: flex;
+}
+
+nav.main-nav li {
+  display: inline-block;
+  padding: 10px 12px;
+  margin: 3px;
+}
+
+nav.main-nav .nav-link {
+  color: darkolivegreen;
+  text-decoration: none;
+  margin: 0;
+  padding: 13px 15px;
+}
+
+nav.main-nav .nav-link:hover {
+  color: olive;
+  background-color: #ddd;
+}

@@ -1,17 +1,16 @@
 import React, { Component } from "react";
 import BbsInsert from "../main/BbsInsert";
 import BbsList from "../main/BbsList";
+import axios from "axios";
 
-const BBS_INSERT_URL = "http://localhost:5000/api/insert";
-const BBS_UPDATE_URL = "http://localhost:5000/api/update";
-const BBS_FETCH_URL = "http://localhost:5000/api/bbsList";
-const BBS_FIND_BY_ID = "http://localhost:5000/api/view/";
+const BBS_INSERT_URL = "/api/insert";
+const BBS_UPDATE_URL = "/api/update";
+const BBS_FETCH_URL = "/api/bbsList";
+const BBS_FIND_BY_ID = "/api/view/";
 
 class BbsMain extends Component {
   timer = "";
   state = {
-    state1: "",
-    state2: "",
     isFetch: false,
     bbsList: [
       {
@@ -48,7 +47,7 @@ class BbsMain extends Component {
     // setInterval(callback, time)
     // 최초에 callback함수가 실행되고 이후에 time 만큼 경과하면
     // 또 callback함수를 계속해서 실행하라
-    this.timer = setInterval(() => this.fetchBbsList(), 5000);
+    // this.timer = setInterval(() => this.fetchBbsList(), 5000);
   }
 
   // react에서 setInterval()를 사용하여 어떤 함수를 실행하면
@@ -79,6 +78,26 @@ class BbsMain extends Component {
       .catch((err) => console.log(err));
   };
 
+  bbsSave = (bbsData) => {
+    const { b_id, b_writer, b_subject, b_content, isUpdate } = bbsData;
+    const url = isUpdate ? BBS_UPDATE_URL : BBS_INSERT_URL;
+    const b_date_time = isUpdate ? bbsData.b_date_time : Date().toString;
+
+    axios
+      .post(url, {
+        b_id: b_id,
+        b_writer: b_writer,
+        b_subject: b_subject,
+        b_content: b_content,
+        b_date_time: b_date_time,
+      })
+      .then((result) => {
+        console.log(result);
+        this.fetchBbsList();
+      })
+      .catch((err) => console.log(err));
+  };
+
   handleUpdate = (id) => {
     fetch(BBS_FIND_BY_ID + id)
       .then((res) => {
@@ -93,21 +112,16 @@ class BbsMain extends Component {
       });
   };
   render() {
-    const { bbsList, state2 } = this.state;
+    const { state, bbsSave, fetchBbsList, handleUpdate } = this;
+    const { bbsList, bbsData, isFetch } = state;
     return (
       <div className="bbs-main">
-        <BbsInsert
-          insertURL={BBS_INSERT_URL}
-          updateURL={this.state.bbsData}
-          bbsData={this.state.bbsData}
-        />
-        <p>{this.state.isFetch ? "데이터 가져오는 중..." : "완료"}</p>
+        <BbsInsert bbsSave={bbsSave} bbsData={bbsData} />
+        <p>{isFetch ? "데이터 가져오는 중..." : "완료"}</p>
         <BbsList
           bbsList={bbsList}
-          fetchBbs={this.fetchBbsList}
-          handleUpdate={this.handleUpdate}
-          state1={this.state.state1}
-          state2={state2}
+          fetchBbs={fetchBbsList}
+          handleUpdate={handleUpdate}
         />
       </div>
     );
