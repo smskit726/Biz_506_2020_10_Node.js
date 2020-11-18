@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "../css/BbsInsert.css";
-import BbsList from "./BbsList";
 
 class BbsInsert extends Component {
   state = {
@@ -46,7 +45,7 @@ class BbsInsert extends Component {
           onChange={handleOnChange}
           placeholder="내용을 입력해주세요"
         />
-        <button onClick={() => bbsSave(this.state)}>저장</button>
+        <button onClick={() => bbsSave(state)}>저장</button>
       </div>
     );
   }

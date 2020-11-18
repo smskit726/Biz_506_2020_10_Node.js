@@ -81,7 +81,7 @@ class BbsMain extends Component {
   bbsSave = (bbsData) => {
     const { b_id, b_writer, b_subject, b_content, isUpdate } = bbsData;
     const url = isUpdate ? BBS_UPDATE_URL : BBS_INSERT_URL;
-    const b_date_time = isUpdate ? bbsData.b_date_time : Date().toString;
+    const b_date_time = isUpdate ? bbsData.b_date_time : Date().toString();
 
     axios
       .post(url, {
