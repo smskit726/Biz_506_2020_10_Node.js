@@ -60,6 +60,9 @@ typings/
 .metadata/
 RemoteSystemsTempFiles/
 
+# Go Data Service KEY
+Data.go.kr.js
+
 # ETC
 .bak
 .Ds_Store

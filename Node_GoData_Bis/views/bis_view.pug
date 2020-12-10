@@ -1,0 +1,14 @@
+table
+    thead
+        tr
+            th 정류장번호
+            th 정류장명
+            th 다음정류장
+            th 정류장ID
+    tbody
+        each station, index in station_list
+            tr
+                td=station.STATION_NUM
+                td=station.BUSSTOP_NAME
+                td=station.NEXT_BUSSTOP
+                td=station.BUSSTOP_ID
